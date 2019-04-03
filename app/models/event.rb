@@ -2,8 +2,7 @@ class Event < ApplicationRecord
   belongs_to :event_venue
   has_many :ticket_types
 
-  #validates :start_date, timeliness: { on_or_before: lambda { Date.current }, type: :date }
-  #validate :start_date_after_current_date
+  validate :start_date_after_current_date
   validate :schedule_order
 
   private def start_date_after_current_date
